@@ -1,16 +1,26 @@
-from time import *
-import random
 
-count = 1
-for _ in range(3):
+def caesar(alphabet):
+    text = input("Text: ")
+    shift = ii("Shift: ")
 
-    num = random.randint(0, 1)
-    print("Бросок номер", count,':')
-    if num == 0:
+    def get_char(char, alphabet_, shift_):
+        if char.isalpha():
+            i = 0
+            if char.isupper():
+                i = 1
+            return alphabet_[i][(alphabet_[i].index(char) + shift_) % len(alphabet_[0])]
+        return char
 
-        print('Орел')
-    else:
-        print('Решка')
-    count += 1
+    shifted = "".join([get_char(char, alphabet, shift) for char in text])
+    print(shifted)
 
-    sleep(3)
+
+def english_alphabet():A
+    return "".join([chr(char) for char in range(ord("a"), ord("z") + 1)])
+
+
+def ii(message=""):
+    return int(input(message))
+
+
+caesar([english_alphabet(), english_alphabet().upper()])

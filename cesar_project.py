@@ -55,7 +55,6 @@ def cesar_eng_decrypt(y,x): #функция для латиницы
     for y in range(25):
 
         print(count, sep='\n')
-        count += 1
 
         for i in range(0, int(len(x))):
             m = ord(x[i])

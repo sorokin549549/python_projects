@@ -1,1 +1,3 @@
-print(99%99)
+s = input().split()
+for i in s:
+    if

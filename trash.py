@@ -1,3 +1,1 @@
-s = input().split()
-for i in s:
-    if
+print(10%2)

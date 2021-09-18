@@ -5,3 +5,12 @@
 #
 # Формат выходных данных
 # Программа должна вывести построчно указанный вложенный список.
+n = int(input())    # считываем значения n и m
+my_list = []
+
+for _ in range(n):
+    my_list.append([]*(n))
+
+    for j in range(n):
+        my_list[_].append(j+1)
+print(*my_list, sep='\n')

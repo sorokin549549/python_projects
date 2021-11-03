@@ -7,26 +7,6 @@ high = m - 1
 low = 0
 count = int((n+1)/2)
 
-
-
-
-
-# for i in range(count):
-#     for j in range(low, high+1):
-#         matrix[i][j] = x
-#         x+=1
-#     for j in range(low+1, high+1+(2-5)):
-#         matrix[j][high] = x
-#         x+=1
-#     for j in range(high, low-1, -1):
-#         matrix[high+1][j] = x
-#         x+=1
-#     for j in range(high-(2-5), low, -1):
-#         matrix[j][low] = x
-#         x+=1
-#     low = low+1
-#     high =high-1
-
 for i in range(count):
     for j in range(low, high+1):
         matrix[i][j] = x
@@ -34,10 +14,10 @@ for i in range(count):
     for j in range(low+1, high+1+(n-m)):
         matrix[j][high] = x
         x+=1
-    for j in range(high-(n-m), low-1, -1):
-        matrix[high+1][j] = x
+    for j in range(high, low+1,-1):
+        matrix[high][j] = x
         x+=1
-    for j in range(high-(n-m), low, -1):
+    for j in range(high, low+1, -1):
         matrix[j][low] = x
         x+=1
     low = low+1

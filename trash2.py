@@ -1,29 +1,19 @@
-n, m = [int(i) for i in input().split()]
+import cmd
 
-matrix = [[0] * m for _ in range(n)]
 
-x = 1
-high = m - 1
-low = 0
-count = int((n+1)/2)
+class HelloWorld(cmd.Cmd):
+    """Simple command processor example"""
 
-for i in range(count):
-    for j in range(low, high+1):
-        matrix[i][j] = x
-        x+=1
-    for j in range(low+1, high+1+(n-m)):
-        matrix[j][high] = x
-        x+=1
-    for j in range(high, low+1,-1):
-        matrix[high][j] = x
-        x+=1
-    for j in range(high, low+1, -1):
-        matrix[j][low] = x
-        x+=1
-    low = low+1
-    high =high-1
+    def do_count(self, line):
+        for i in range(10000):
+            print(i)
 
-for i in range(n):
-    for j in range(m):
-        print(str(matrix[i][j]).ljust(3), end=' ')
-    print()
+    def do_EOF(self, line):
+        return True
+
+
+if __name__ == '__main__':
+    try:
+        HelloWorld().cmdloop()
+    except KeyboardInterrupt:
+        print('Abort')

@@ -3,7 +3,7 @@ import io
 import urllib.request
 
 
-url = 'https://docs.google.com/spreadsheets/d/1NMCnmWy7hn-gNO7oyQyaM_WBmUR3kO9xzjQQ1iopbhk/export?format=csv'
+url = 'https://docs.google.com/spreadsheets/d/1NMCnmWy7hn-gNO7oyQyaM_WBmUR3kO9xzjQQ1iopbhk/export?=csv'
 
 response = urllib.request.urlopen(url)
 

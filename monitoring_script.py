@@ -10,6 +10,13 @@ def main():
           (get_ram_total()), 'MB.')
     print('Disk usage is', (get_disk_usage_pct()), '%, free disk space is', (get_disk_free()), 'MB, of',
           (get_disk_total()), 'MB.')
+    if get_cpu_usage_pct() > 4:
+        print('WARNING: CPU ultilization more than 4%')
+    if get_ram_usage_pct() > 70:
+        print('WARNING: MEMORY ultilization more than 70%')
+    if get_disk_usage_pct() > 10:
+        print('WARNING: DISK ultilization more than 10%')
+
 
 
 def get_ram_usage():
@@ -43,6 +50,7 @@ def get_disk_total():
 def get_loadaverage():
     return psutil.getloadavg()
 
-
 if __name__ == "__main__":
     main()
+
+

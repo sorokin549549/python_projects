@@ -1,21 +1,37 @@
 import psutil
 import os
 import sys
-
+import module_for_script
 
 def main():
+
+    print('Please inter ppercent of CPU:')
+    a = int(input())
+    print('Please inter ppercent of RAM:')
+    b = int(input())
+    print('Please inter ppercent of Disk:')
+    c = int(input())
+
+
     print('Load Average stats:', get_loadaverage())
     print('CPU usage is', get_cpu_usage_pct(),'%.')
     print('RAM usage is', (get_ram_usage_pct()), '%, it is', (get_ram_usage()), 'MB of total',
           (get_ram_total()), 'MB.')
     print('Disk usage is', (get_disk_usage_pct()), '%, free disk space is', (get_disk_free()), 'MB, of',
           (get_disk_total()), 'MB.')
-    if get_cpu_usage_pct() > 4:
-        print('WARNING: CPU ultilization more than 4%')
-    if get_ram_usage_pct() > 70:
-        print('WARNING: MEMORY ultilization more than 70%')
-    if get_disk_usage_pct() > 10:
-        print('WARNING: DISK ultilization more than 10%')
+
+    with open('module_for_script.py', 'w') as file:
+        file.write('cpu_percent='+str(a)+'\n'+'ram_percent='+str(b)+'\n'+'disk_percent='+str(b))
+        file.close()
+
+    if get_cpu_usage_pct() > module_for_script.cpu_percent:
+        print('WARNING: CPU usage more than',a,'%')
+    if get_ram_usage_pct() > module_for_script.ram_percent:
+        print('WARNING: MEMORY usage more than',b,'%')
+    if get_disk_usage_pct() > module_for_script.disk_percent:
+        print('WARNING: DISK usage more than',c,'%')
+
+
 
 
 

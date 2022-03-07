@@ -1,3 +1,3 @@
-cpu_percent=5
-ram_percent=5
-disk_percent=5
+cpu_percent=13
+ram_percent=13
+disk_percent=13

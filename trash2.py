@@ -1,19 +1,21 @@
-import cmd
+import sys
+import argparse
 
 
-class HelloWorld(cmd.Cmd):
-    """Simple command processor example"""
+def createParser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('name', nargs='?')
 
-    def do_count(self, line):
-        for i in range(10000):
-            print(i)
-
-    def do_EOF(self, line):
-        return True
+    return parser
 
 
 if __name__ == '__main__':
-    try:
-        HelloWorld().cmdloop()
-    except KeyboardInterrupt:
-        print('Abort')
+    parser = createParser()
+    namespace = parser.parse_args()
+
+    # print (namespace)
+
+    if namespace.name:
+        print("Привет, {}!".format(namespace.name))
+    else:
+        print("Привет, мир!")

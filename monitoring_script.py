@@ -1,6 +1,7 @@
 import psutil
 import os
 import sys
+import argparse
 
 import email, smtplib, ssl
 import io
@@ -97,9 +98,10 @@ def mailer():
     message["To"] = receiver_email
 
     html = """<html>
-<button>Hello, disk usage more than {link}%, please fix it!</button>
+Hello, DISK usage {link}%, CPU usage {link2}%, RAM usage {link3}%!
 </html>
-""".format(link=module_for_script.disk_percent)
+""".format(link=module_for_script.disk_percent, link2=module_for_script.cpu_percent, link3=module_for_script.ram_percent)
+
 
 
     part2 = MIMEText(html, "html")
